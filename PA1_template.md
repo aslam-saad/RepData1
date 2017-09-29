@@ -67,18 +67,14 @@ site:**
 <font color = "#112467" face = Times New Roman>What is mean total number of steps taken per day?</font>
 -------------------------------------------------------------------------------------------------------
 
-1.  Calculate the total number of steps taken per day
-
-<!-- -->
+1- Calculate the total number of steps taken per day
 
     activity1 <- activity %>%
         filter(!is.na(steps)) %>%
         group_by(date) %>%
         summarise(steps = sum(steps))
 
-1.  Make a histogram of the total number of steps taken each day
-
-<!-- -->
+2- Make a histogram of the total number of steps taken each day
 
     activity1 %>%
     ggplot(aes(x = steps))+ 
@@ -91,10 +87,8 @@ site:**
 
 ![](steps%20by%20day-1.png)
 
-1.  Calculate and report the mean and median of the total number of
-    steps taken per day
-
-<!-- -->
+3- Calculate and report the mean and median of the total number of steps
+taken per day
 
     steps_mean <- as.integer(round(mean(activity1$steps)))
     steps_median <- as.integer(round(median(activity1$steps)))
@@ -104,9 +98,7 @@ The Mean of the steps equals 10766, while the Median equals 10765
 <font color = "#112467" face = Times New Roman>What is the average daily activity pattern?</font>
 -------------------------------------------------------------------------------------------------
 
-1.  Transforming data
-
-<!-- -->
+1- Transforming data
 
     activity2 <- activity %>%
         filter(!is.na(steps), !is.na(interval)) %>%
@@ -121,9 +113,7 @@ The Mean of the steps equals 10766, while the Median equals 10765
         group_by(time) %>%
         summarise(steps = mean(steps))
 
-1.  Plotting
-
-<!-- -->
+2- Plotting
 
     activity2 %>%
         ggplot(aes(time, steps))+
@@ -133,10 +123,8 @@ The Mean of the steps equals 10766, while the Median equals 10765
 
 ![](Avg%20daily%20activity-1.png)
 
-1.  Which 5-minute interval, on average across all the days, contains
-    the maximum number of steps?
-
-<!-- -->
+3- Which 5-minute interval, on average across all the days, contains the
+maximum number of steps?
 
     activity2 <- activity2 %>% 
         filter(steps == max(steps)) 
@@ -153,17 +141,15 @@ The Mean of the steps equals 10766, while the Median equals 10765
 *Note that there are a number of days/intervals where there are missing
 values (coded as NA)*
 
-1.  Calculate and report the total number of missing values in the
-    dataset (i.e. the total number of rows with NAs)
-
-<!-- -->
+1- Calculate and report the total number of missing values in the
+dataset (i.e. the total number of rows with NAs)
 
     steps_missing <- sum(is.na(activity$steps))
 
 The Total Number of Missing Values is 2304
 
-1.  Devise a strategy for filling in all of the missing values in
-    the dataset.
+2- Devise a strategy for filling in all of the missing values in the
+dataset.
 
 *I think the best strategy is to replace missing values with the most
 recent Non-missing value*
@@ -173,19 +159,15 @@ recent Non-missing value*
         filter(!every(steps,is.na)) %>%
         fill(steps)
 
-1.  Create a new dataset that is equal to the original dataset but with
-    the missing data filled in.
-
-<!-- -->
+3- Create a new dataset that is equal to the original dataset but with
+the missing data filled in.
 
     activity3 <- steps_non.missing %>%
         left_join(activity, by = c("date", "interval")) %>%
         select(-steps.y) %>%
         rename(steps = steps.x)
 
-1.  Make a histogram of the total number of steps taken each day
-
-<!-- -->
+4- Make a histogram of the total number of steps taken each day
 
     activity3 %>%
         group_by(date) %>%
@@ -213,9 +195,7 @@ Average Total Number of Steps is 10766, and Median is 10765
 <font color = "#112467" face = Times New Roman>Are there differences in activity patterns between weekdays and weekends?</font>
 -------------------------------------------------------------------------------------------------------------------------------
 
-1.  ransforming data
-
-<!-- -->
+1- ransforming data
 
     activity4 <- activity %>%
         filter(!is.na(steps), !is.na(interval)) %>%
@@ -231,9 +211,7 @@ Average Total Number of Steps is 10766, and Median is 10765
         group_by(time, week_type) %>%
         summarise(steps = mean(steps))
 
-1.  Plotting
-
-<!-- -->
+2- Plotting
 
     activity4 %>%
         ggplot(aes(x = time, y = steps, color = week_type))+
