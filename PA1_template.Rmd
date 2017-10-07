@@ -41,7 +41,7 @@ taken in 5 minute intervals each day.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig.path = "",
+knitr::opts_chunk$set(fig.path = "figs",
                include = TRUE, warning = FALSE, message = FALSE)
 ```
 
@@ -55,6 +55,7 @@ library(dplyr)
 library(purrr)
 library(lubridate)
 library(ggplot2)
+library(R.utils)
 ```
 
 
