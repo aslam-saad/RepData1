@@ -62,6 +62,12 @@ site:**
 <font color = "#112467" face = Times New Roman>Importing data</font>
 --------------------------------------------------------------------
 
+    # download the file if it's not exist
+    if(!file.exists("activity.csv")) {
+      download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2",
+      destfile = "activity.csv.bz2")
+      bunzip2("activity.csv.bz2")
+        }
     activity <- read_csv("activity.csv")
 
 <font color = "#112467" face = Times New Roman>What is mean total number of steps taken per day?</font>
