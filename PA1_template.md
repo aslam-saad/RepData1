@@ -85,7 +85,7 @@ site:**
         scale_y_continuous(breaks = c(seq(0,10,by = .5)))+
         theme_bw()
 
-![](steps%20by%20day-1.png)
+![](figs/steps%20by%20day-1.png)
 
 3- Calculate and report the mean and median of the total number of steps
 taken per day
@@ -121,7 +121,7 @@ The Mean of the steps equals 10766, while the Median equals 10765
         labs(x = "Time(Hours)", y = "average steps")+
         theme_bw()
 
-![](Avg%20daily%20activity-1.png)
+![](figs/Avg%20daily%20activity-1.png)
 
 3- Which 5-minute interval, on average across all the days, contains the
 maximum number of steps?
@@ -180,7 +180,7 @@ the missing data filled in.
              y = "Frequency")+
         theme_bw()
 
-![](steps%20Non-missing-1.png)
+![](figs/steps%20Non-missing-1.png)
 
 And Calculate and report the mean and median total number of steps taken
 per day
@@ -220,4 +220,4 @@ Average Total Number of Steps is 10766, and Median is 10765
         theme_bw() +
         labs(color = "Week type", title = str_wrap("Average daily steps", indent = 55), x = "Time(Hours)")
 
-![](activity%20by%20weektype-1.png)
+![](figs/activity%20by%20weektype-1.png)
