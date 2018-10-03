@@ -15,7 +15,7 @@ processing and interpreting the data.
 
 ## Data
 
-The data can be downloaded from the course web site:
+The data can be downloaded from web site:
 
 * Dataset: [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip) [52K]
 
