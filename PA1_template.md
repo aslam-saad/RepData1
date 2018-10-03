@@ -32,7 +32,7 @@ include the number of steps
 
 taken in 5 minute intervals each day.
 
-**The data for this assignment can be downloaded from the course web
+**The data for this project can be downloaded from the course web
 site:**
 
 -   **Dataset:** [Activity monitoring
